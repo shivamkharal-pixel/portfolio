@@ -179,7 +179,10 @@
     color: var(--text-primary);
 }
 
-/* Responsive Design */
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
 @media (max-width: 1024px) {
     .projects-grid {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -192,29 +195,6 @@
 }
 
 @media (max-width: 768px) {
-    .projects-title {
-        font-size: var(--font-size-3xl);
-    }
-
-    .projects-subtitle {
-        font-size: var(--font-size-base);
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-xl);
-    }
-
-    .project-card {
-        padding: var(--spacing-lg);
-    }
-
-    .projects-cta h2 {
-        font-size: var(--font-size-xl);
-    }
-}
-
-@media (max-width: 480px) {
     .projects-container {
         padding: var(--spacing-xl) var(--spacing-md);
         min-height: auto;
@@ -225,11 +205,54 @@
     }
 
     .projects-title {
+        font-size: var(--font-size-3xl);
+    }
+
+    .projects-subtitle {
+        font-size: var(--font-size-base);
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .project-card {
+        padding: var(--spacing-lg);
+    }
+
+    .project-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .projects-cta {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .projects-cta h2 {
+        font-size: var(--font-size-xl);
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-container {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+
+    .projects-header {
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .projects-title {
         font-size: var(--font-size-2xl);
     }
 
     .projects-subtitle {
         font-size: var(--font-size-sm);
+    }
+
+    .projects-grid {
+        gap: var(--spacing-md);
     }
 
     .project-card {
@@ -241,7 +264,11 @@
     }
 
     .project-description {
-        font-size: var(--font-size-xs);
+        font-size: var(--font-size-sm);
+    }
+
+    .projects-cta {
+        padding: var(--spacing-lg) var(--spacing-sm);
     }
 
     .projects-cta h2 {
