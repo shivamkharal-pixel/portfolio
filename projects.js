@@ -149,16 +149,19 @@ function searchProjects(query) {
 
 document.addEventListener('click', function(e) {
     if (e.target.closest('.project-link')) {
-        e.preventDefault();
         const projectLink = e.target.closest('.project-link');
         const href = projectLink.getAttribute('href');
         
-        // Add click animation
+        // If it's a case study link (internal), let it navigate naturally
+        if (href && href.startsWith('case-study.html')) {
+            return;
+        }
+
+        // For external links or #, handle it with animation
+        e.preventDefault();
         projectLink.style.transform = 'scale(0.95)';
         setTimeout(() => {
             projectLink.style.transform = '';
-            
-            // Navigate or open link
             if (href && href !== '#') {
                 window.open(href, '_blank');
             }
