@@ -269,15 +269,35 @@
     margin: 0;
 }
 
-/* Responsive Design */
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
 @media (max-width: 1024px) {
     .hero-content {
         grid-template-columns: 1fr;
         gap: var(--spacing-2xl);
+        text-align: center;
+    }
+
+    .hero-text {
+        order: 1;
     }
 
     .hero-visual {
-        height: 400px;
+        order: 0;
+        height: 350px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-subtitle {
+        max-width: 100%;
+    }
+
+    .hero-cta {
+        justify-content: center;
     }
 
     .glow-orb {
@@ -295,15 +315,31 @@
     }
 
     .hero-image-container {
+        position: relative;
         width: 250px;
         height: 320px;
+        margin: 0 auto;
+    }
+
+    .tech-keywords {
+        position: relative;
+        width: auto;
+        height: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-md) 0 0;
     }
 }
 
 @media (max-width: 768px) {
     .hero-container {
         min-height: calc(100vh - 70px);
-        padding: var(--spacing-2xl) var(--spacing-md);
+        min-height: calc(100dvh - 70px);
+        padding: var(--spacing-xl) var(--spacing-md);
+        justify-content: flex-start;
+        padding-top: calc(var(--spacing-xl) + 20px);
     }
 
     .hero-title {
@@ -316,10 +352,16 @@
 
     .hero-cta {
         flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-cta .btn {
+        text-align: center;
+        justify-content: center;
     }
 
     .hero-visual {
-        height: 300px;
+        height: 280px;
     }
 
     .glow-orb {
@@ -328,26 +370,22 @@
     }
 
     .orb-1 {
-        width: 200px;
-        height: 200px;
+        width: 180px;
+        height: 180px;
+        top: 20px;
+        left: 20px;
     }
 
     .orb-2 {
-        width: 150px;
-        height: 150px;
+        width: 140px;
+        height: 140px;
+        bottom: 60px;
+        right: 60px;
     }
 
     .hero-image-container {
         width: 200px;
-        height: 280px;
-    }
-
-    .tech-keywords {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: var(--spacing-sm);
+        height: 260px;
     }
 
     .keyword {
@@ -355,16 +393,38 @@
         padding: 6px 12px;
     }
 
+    .stats-section {
+        padding: var(--spacing-2xl) var(--spacing-md);
+    }
+
     .stats-container {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--spacing-lg);
+    }
+
+    .stat-card {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .stat-card h3 {
+        font-size: var(--font-size-3xl);
+    }
+
+    .scroll-indicator {
+        bottom: 16px;
+    }
+
+    .scroll-indicator p {
+        font-size: var(--font-size-xs);
     }
 }
 
 @media (max-width: 480px) {
     .hero-container {
         min-height: calc(100vh - 60px);
-        padding: var(--spacing-xl) var(--spacing-md);
+        min-height: calc(100dvh - 60px);
+        padding: var(--spacing-lg) var(--spacing-sm);
+        padding-top: calc(var(--spacing-lg) + 10px);
     }
 
     .hero-title {
@@ -373,10 +433,11 @@
 
     .hero-subtitle {
         font-size: var(--font-size-sm);
+        line-height: var(--line-height-relaxed);
     }
 
     .hero-visual {
-        height: 250px;
+        height: 240px;
     }
 
     .glow-orb {
@@ -384,30 +445,54 @@
     }
 
     .orb-1 {
-        width: 150px;
-        height: 150px;
-        top: 20px;
-        left: 20px;
+        width: 130px;
+        height: 130px;
+        top: 10px;
+        left: 10px;
     }
 
     .orb-2 {
-        width: 120px;
-        height: 120px;
-        bottom: 50px;
-        right: 50px;
+        width: 100px;
+        height: 100px;
+        bottom: 30px;
+        right: 30px;
     }
 
     .hero-image-container {
-        width: 160px;
+        width: 170px;
         height: 220px;
         border-radius: 16px;
     }
 
+    .stats-section {
+        padding: var(--spacing-xl) var(--spacing-sm);
+    }
+
     .stats-container {
         grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .stat-card {
+        padding: var(--spacing-md);
     }
 
     .stat-card h3 {
-        font-size: var(--font-size-3xl);
+        font-size: var(--font-size-2xl);
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 1.6rem;
+    }
+
+    .hero-image-container {
+        width: 150px;
+        height: 200px;
     }
 }
