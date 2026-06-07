@@ -15,12 +15,18 @@
     <nav class="navbar">
         <div class="navbar-container">
             <a href="index.html" class="navbar-logo">Shivam Kharal</a>
-            <ul class="nav-menu">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="menu-overlay" id="menuOverlay"></div>
+            <ul class="nav-menu" id="navMenu">
                 <li class="nav-item"><a href="index.html" class="nav-link" data-page="home">Home</a></li>
                 <li class="nav-item"><a href="projects.html" class="nav-link active" data-page="projects">Projects</a></li>
                 <li class="nav-item"><a href="about.html" class="nav-link" data-page="about">About</a></li>
                 <li class="nav-item"><a href="contact.html" class="nav-link" data-page="contact">Contact</a></li>
-                <li class="nav-item"><a href="#" class="nav-link nav-cta" onclick="event.preventDefault();">Resume</a></li>
+                <li class="nav-item"><a href="#" class="nav-cta" onclick="event.preventDefault();">Resume</a></li>
             </ul>
         </div>
     </nav>
