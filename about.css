@@ -205,11 +205,18 @@
     box-shadow: 0 0 10px rgba(0, 217, 255, 0.2);
 }
 
-/* Responsive Design */
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
 @media (max-width: 1024px) {
     .about-content {
         grid-template-columns: 1fr;
         gap: var(--spacing-2xl);
+    }
+
+    .about-visual {
+        order: -1;
     }
 
     .about-container {
@@ -217,12 +224,20 @@
     }
 
     .profile-placeholder {
-        width: 250px;
-        height: 250px;
+        width: 260px;
+        height: 260px;
     }
 }
 
 @media (max-width: 768px) {
+    .about-container {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .about-header {
+        margin-bottom: var(--spacing-xl);
+    }
+
     .about-title {
         font-size: var(--font-size-3xl);
     }
@@ -231,36 +246,59 @@
         font-size: var(--font-size-base);
     }
 
+    .about-story {
+        text-align: center;
+    }
+
     .about-story h2 {
         font-size: var(--font-size-xl);
     }
 
     .about-story p {
         font-size: var(--font-size-sm);
+        text-align: left;
+    }
+
+    .about-content {
+        margin-bottom: var(--spacing-xl);
     }
 
     .profile-placeholder {
-        width: 200px;
-        height: 200px;
+        width: 220px;
+        height: 220px;
+    }
+
+    .skills-section {
+        margin-top: var(--spacing-xl);
+        padding-top: var(--spacing-xl);
     }
 
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-lg);
+        gap: var(--spacing-md);
     }
 
     .skill-category {
         padding: var(--spacing-md);
     }
+
+    .skill-category h3 {
+        font-size: var(--font-size-base);
+    }
+
+    .skills-title {
+        font-size: var(--font-size-xl);
+        margin-bottom: var(--spacing-lg);
+    }
 }
 
 @media (max-width: 480px) {
     .about-container {
-        padding: var(--spacing-xl) var(--spacing-md);
+        padding: var(--spacing-lg) var(--spacing-sm);
     }
 
     .about-header {
-        margin-bottom: var(--spacing-xl);
+        margin-bottom: var(--spacing-lg);
     }
 
     .about-title {
@@ -276,24 +314,32 @@
     }
 
     .about-story p {
-        font-size: var(--font-size-xs);
+        font-size: var(--font-size-sm);
+        line-height: var(--line-height-relaxed);
     }
 
     .profile-placeholder {
-        width: 150px;
-        height: 150px;
+        width: 180px;
+        height: 180px;
+        border-radius: 12px;
     }
 
     .skills-grid {
         grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .skill-category {
+        padding: var(--spacing-md);
     }
 
     .skill-tag {
         font-size: var(--font-size-xs);
+        padding: 5px 10px;
     }
 
     .skills-title {
         font-size: var(--font-size-lg);
-        margin-bottom: var(--spacing-lg);
+        margin-bottom: var(--spacing-md);
     }
 }
