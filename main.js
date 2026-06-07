@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize navigation
     initNavigation();
     
+    // Initialize mobile menu
+    initMobileMenu();
+    
     // Smooth scroll behavior
     initSmoothScroll();
     
@@ -41,6 +44,85 @@ function getCurrentPage() {
     if (path.includes('about.html')) return 'about';
     if (path.includes('contact.html')) return 'contact';
     return 'home';
+}
+
+/* ========================================
+   MOBILE MENU
+   ======================================== */
+
+function initMobileMenu() {
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    const overlay = document.getElementById('menuOverlay');
+    
+    if (!menuToggle || !navMenu) return;
+
+    // Toggle menu on button click
+    menuToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        toggleMenu();
+    });
+
+    // Close menu when overlay is clicked
+    if (overlay) {
+        overlay.addEventListener('click', function() {
+            closeMenu();
+        });
+    }
+
+    // Close menu when a nav link is clicked
+    navMenu.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+            closeMenu();
+        });
+    });
+
+    // Close menu on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeMenu();
+        }
+    });
+
+    // Close menu on window resize (if crossing the breakpoint)
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+            if (window.innerWidth > 768) {
+                closeMenu();
+            }
+        }, 100);
+    });
+
+    function toggleMenu() {
+        const isOpen = navMenu.classList.contains('active');
+        if (isOpen) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    }
+
+    function openMenu() {
+        navMenu.classList.add('active');
+        menuToggle.classList.add('active');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('menu-open');
+        if (overlay) {
+            overlay.classList.add('active');
+        }
+    }
+
+    function closeMenu() {
+        navMenu.classList.remove('active');
+        menuToggle.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+        if (overlay) {
+            overlay.classList.remove('active');
+        }
+    }
 }
 
 /* ========================================
@@ -120,13 +202,8 @@ function initResumeButton() {
                 // Resume file path
                 const resumeUrl = 'Shivam Kharal resume.pdf';
                 
-                // Download resume file
-                const link = document.createElement('a');
-                link.href = resumeUrl;
-                link.download = 'Shivam_Kharal_Resume.pdf';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
+                // Open resume in new tab
+                window.open(resumeUrl, '_blank');
             });
         });
     }
@@ -195,29 +272,6 @@ window.addEventListener('load', function() {
     animatedElements.forEach((el, index) => {
         el.style.animationDelay = `${index * 0.1}s`;
     });
-});
-
-/* ========================================
-   MOBILE MENU TOGGLE (Optional)
-   ======================================== */
-
-function toggleMobileMenu() {
-    const navMenu = document.querySelector('.nav-menu');
-    if (navMenu) {
-        navMenu.classList.toggle('active');
-    }
-}
-
-// Close mobile menu when link is clicked
-document.addEventListener('click', function(event) {
-    const navMenu = document.querySelector('.nav-menu');
-    const navbar = document.querySelector('.navbar');
-    
-    if (navMenu && navbar) {
-        if (!navbar.contains(event.target)) {
-            navMenu.classList.remove('active');
-        }
-    }
 });
 
 /* ========================================
